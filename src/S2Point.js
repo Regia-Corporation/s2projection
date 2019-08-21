@@ -44,7 +44,7 @@ export default class S2Point {
     let face = this._largestAbsComponent()
     const temp = [this.x, this.y, this.z]
     if (temp[face] < 0) face += 3
-
+    // $FlowIgnoreLine
     return face
   }
 
