@@ -3,6 +3,8 @@ import S2Point from './S2Point'
 
 export type Face = 0 | 1 | 2 | 3 | 4 | 5
 
+export type BBox = [number, number, number, number]
+
 export function linearSTtoUV (s: number) {
   return 2 * s - 1
 }
@@ -68,7 +70,7 @@ export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [nu
   ]
 }
 
-export function bbox (x: number, y: number, zoom: number): [number, number, number, number] {
+export function bbox (x: number, y: number, zoom: number): BBox {
   const divisionFactor = 2 / (1 << zoom)
 
   return [
