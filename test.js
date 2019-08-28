@@ -6,7 +6,7 @@ const { S2Point } = require('./lib').default
 // console.log(point.toUV())
 // console.log(point.toST())
 
-const point = S2Point.fromUV(0, 1, 0)
+const point = S2Point.fromUVGL(0, 0, 0)
 
 console.log(point)
 console.log(point.toLonLat())

@@ -31,6 +31,7 @@ export function quadraticUVtoST (u: number) {
   return 1 - 0.5 * Math.sqrt(1 - 3 * u)
 }
 
+// left hand rule
 export function faceUVtoXYZ (face: Face, u: number, v: number): S2Point {
   switch (face) {
     case 0: return new S2Point(1, u, v)
@@ -39,6 +40,19 @@ export function faceUVtoXYZ (face: Face, u: number, v: number): S2Point {
     case 3: return new S2Point(-1, -v, -u)
     case 4: return new S2Point(v, -1, -u)
     default: return new S2Point(v, u, -1)
+  }
+}
+
+// right hand role
+export function faceUVtoXYZGL (face: Face, u: number, v: number): S2Point {
+
+  switch (face) {
+    case 0: return new S2Point(u, v, 1)
+    case 1: return new S2Point(1, v, -u)
+    case 2: return new S2Point(-v, 1, -u)
+    case 3: return new S2Point(-v, -u, -1)
+    case 4: return new S2Point(-1, -u, v)
+    default: return new S2Point(u, -1, v)
   }
 }
 

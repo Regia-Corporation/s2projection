@@ -5,6 +5,7 @@ import {
   quadraticUVtoST as UVtoST,
   faceUVtoXYZ,
   faceXYZtoUV,
+  faceUVtoXYZGL,
   lonLatToXYZ,
   xyzToLonLat
 } from './S2Projection'
@@ -113,5 +114,15 @@ export default class S2Point {
     const [u, v] = [STtoUV(s), STtoUV(t)]
 
     return this.fromUV(face, u, v)
+  }
+
+  static fromUVGL (face: Face, u: number, v: number): S2Point {
+    return faceUVtoXYZGL(face, u, v)
+  }
+
+  static fromSTGL (face: Face, s: number, t: number) {
+    const [u, v] = [STtoUV(s), STtoUV(t)]
+
+    return this.fromUVGL(face, u, v)
   }
 }
