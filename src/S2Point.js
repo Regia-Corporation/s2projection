@@ -23,6 +23,30 @@ export default class S2Point {
     this.z = z
   }
 
+  add (n: number) {
+    this.x += n
+    this.y += n
+    this.z += n
+  }
+
+  adddArr (arr: [number, number, number]) {
+    this.x += arr[0]
+    this.y += arr[1]
+    this.z += arr[2]
+  }
+
+  mul (n: number) {
+    this.x *= n
+    this.y *= n
+    this.z *= n
+  }
+
+  mulArr (arr: [number, number, number]) {
+    this.x *= arr[0]
+    this.y *= arr[1]
+    this.z *= arr[2]
+  }
+
   toUV (): [Face, number, number] {
     // get the face from the x, y, z
     const face: Face = this.getFace()
