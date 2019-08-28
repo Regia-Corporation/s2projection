@@ -47,6 +47,17 @@ export default class S2Point {
     this.z *= arr[2]
   }
 
+  normalize () {
+    const length = this.length()
+    this.x /= length
+    this.y /= length
+    this.z /= length
+  }
+
+  length () {
+    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z)
+  }
+
   toUV (): [Face, number, number] {
     // get the face from the x, y, z
     const face: Face = this.getFace()
