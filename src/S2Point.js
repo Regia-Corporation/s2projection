@@ -30,10 +30,22 @@ export default class S2Point {
     this.z += n
   }
 
-  adddArr (arr: [number, number, number]) {
+  addScalar (arr: [number, number, number]) {
     this.x += arr[0]
     this.y += arr[1]
     this.z += arr[2]
+  }
+
+  sub (n: number) {
+    this.x -= n
+    this.y -= n
+    this.z -= n
+  }
+
+  subScalar (arr: [number, number, number]) {
+    this.x -= arr[0]
+    this.y -= arr[1]
+    this.z -= arr[2]
   }
 
   mul (n: number) {
