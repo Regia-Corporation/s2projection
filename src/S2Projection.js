@@ -84,7 +84,7 @@ export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [nu
   ]
 }
 
-export function bbox (x: number, y: number, zoom: number): BBox {
+export function bboxUV (x: number, y: number, zoom: number): BBox {
   const divisionFactor = 2 / (1 << zoom)
 
   return [
@@ -92,6 +92,17 @@ export function bbox (x: number, y: number, zoom: number): BBox {
     divisionFactor * y - 1,
     divisionFactor * (x + 1) - 1,
     divisionFactor * (y + 1) - 1
+  ]
+}
+
+export function bboxST (x: number, y: number, zoom: number): BBox {
+  const divisionFactor = 2 / (1 << zoom)
+
+  return [
+    divisionFactor * x * 0.5,
+    divisionFactor * y * 0.5,
+    divisionFactor * (x + 1) * 0.5,
+    divisionFactor * (y + 1) * 0.5
   ]
 }
 
@@ -114,7 +125,8 @@ export default {
   faceXYZtoUV,
   xyzToLonLat,
   lonLatToXYZ,
-  bbox,
+  bboxUV,
+  bboxST,
   radToDeg,
   degToRad
 }
