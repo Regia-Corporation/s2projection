@@ -84,25 +84,25 @@ export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [nu
   ]
 }
 
-export function bboxUV (x: number, y: number, zoom: number): BBox {
+export function bboxUV (u: number, v: number, zoom: number): BBox {
   const divisionFactor = 2 / (1 << zoom)
 
   return [
-    divisionFactor * x - 1,
-    divisionFactor * y - 1,
-    divisionFactor * (x + 1) - 1,
-    divisionFactor * (y + 1) - 1
+    divisionFactor * u - 1,
+    divisionFactor * v - 1,
+    divisionFactor * (u + 1) - 1,
+    divisionFactor * (v + 1) - 1
   ]
 }
 
-export function bboxST (x: number, y: number, zoom: number): BBox {
+export function bboxST (s: number, t: number, zoom: number): BBox {
   const divisionFactor = 2 / (1 << zoom)
 
   return [
-    divisionFactor * x * 0.5,
-    divisionFactor * y * 0.5,
-    divisionFactor * (x + 1) * 0.5,
-    divisionFactor * (y + 1) * 0.5
+    divisionFactor * s * 0.5,
+    divisionFactor * t * 0.5,
+    divisionFactor * (s + 1) * 0.5,
+    divisionFactor * (t + 1) * 0.5
   ]
 }
 
