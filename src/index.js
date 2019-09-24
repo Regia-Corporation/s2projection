@@ -1,14 +1,48 @@
 // @flow
 import { default as S2LonLat } from './S2LonLat'
 import { default as S2Point } from './S2Point'
-import { default as S2Projection } from './S2Projection'
-import { default as util } from './util'
+import {
+  linearSTtoUV,
+  linearUVtoST,
+  tanSTtoUV,
+  tanUVtoST,
+  quadraticSTtoUV,
+  quadraticUVtoST,
+  faceUVtoXYZ,
+  faceXYZtoUV,
+  xyzToLonLat,
+  lonLatToXYZ,
+  bboxUV,
+  bboxST,
+  radToDeg,
+  degToRad
+} from './S2Projection'
+import {
+  EARTH_RADIUS,
+  EARTH_RADIUS_WIDE,
+  EARTH_RADIUS_TALL
+} from './util'
 
 export default {
   S2LonLat,
   S2Point,
-  ...S2Projection,
-  ...util
+  linearSTtoUV,
+  linearUVtoST,
+  tanSTtoUV,
+  tanUVtoST,
+  quadraticSTtoUV,
+  quadraticUVtoST,
+  faceUVtoXYZ,
+  faceXYZtoUV,
+  xyzToLonLat,
+  lonLatToXYZ,
+  bboxUV,
+  bboxST,
+  radToDeg,
+  degToRad,
+  EARTH_RADIUS,
+  EARTH_RADIUS_WIDE,
+  EARTH_RADIUS_TALL
 }
 
 export type { Face } from './S2Projection'

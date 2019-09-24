@@ -3,7 +3,7 @@ import S2Point from './S2Point'
 
 export type Face = 0 | 1 | 2 | 3 | 4 | 5
 
-export type BBox = [number, number, number, number]
+export type BBox = [number, number, number, number] // left, bottom, right, top
 
 export function linearSTtoUV (s: number) {
   return 2 * s - 1
@@ -112,21 +112,4 @@ export function radToDeg (radians: number): number {
 
 export function degToRad (deg: number): number {
   return deg * Math.PI / 180
-}
-
-export default {
-  linearSTtoUV,
-  linearUVtoST,
-  tanSTtoUV,
-  tanUVtoST,
-  quadraticSTtoUV,
-  quadraticUVtoST,
-  faceUVtoXYZ,
-  faceXYZtoUV,
-  xyzToLonLat,
-  lonLatToXYZ,
-  bboxUV,
-  bboxST,
-  radToDeg,
-  degToRad
 }
