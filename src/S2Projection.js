@@ -43,7 +43,7 @@ export function faceUVtoXYZ (face: Face, u: number, v: number): S2Point {
   }
 }
 
-// right hand role
+// right hand rule
 export function faceUVtoXYZGL (face: Face, u: number, v: number): S2Point {
 
   switch (face) {
@@ -56,6 +56,7 @@ export function faceUVtoXYZGL (face: Face, u: number, v: number): S2Point {
   }
 }
 
+// left hand rule
 export function faceXYZtoUV (face: Face, x: number, y: number, z: number): [number, number] {
   switch (face) {
     case 0: return [y / x, z / x]
@@ -67,17 +68,23 @@ export function faceXYZtoUV (face: Face, x: number, y: number, z: number): [numb
   }
 }
 
+// TODO: right hand rule
+export function faceXYZGLtoUV (face: Face, x: number, y: number, z: number): [number, number] {
+  switch (face) {
+    case 0: return [x / z, y / z]
+    case 1: return [-z / x, y / x]
+    case 2: return [-z / y, -x / y]
+    case 3: return [y / z, x / z]
+    case 4: return [y / x, -z / x]
+    default: return [-x / y, -z / y]
+  }
+}
+
 export function xyzToLonLat (x: number, y: number, z: number, radius?: number = 1): [number, number] {
   return [
     radToDeg(Math.atan2(y, x)),
     radToDeg(Math.atan2(z, Math.sqrt(x * x + y * y)))
   ]
-}
-
-export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
-  const divisionSize = (2 / (1 << zoom)) * 0.5
-
-  return [Math.floor(s / divisionSize), Math.floor(t / divisionSize)]
 }
 
 export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [number, number, number] {
@@ -88,6 +95,16 @@ export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [nu
     radius * Math.cos(lat) * Math.sin(lon), // y
     radius * Math.sin(lat), // z
   ]
+}
+
+// TODO: Currently not working
+export function tileXYFromUVZoom (u: number, v: number, zoom: number): number {
+  const divisionFactor = 2 / (1 << zoom)
+  console.log('divisionFactor', divisionFactor)
+  const totalDivisions = 2 / divisionFactor
+  console.log('totalDivisions', totalDivisions)
+
+  return [Math.floor((2 * u / divisionFactor) - 1), Math.floor(v / divisionFactor) - 1]
 }
 
 export function bboxUV (u: number, v: number, zoom: number): BBox {
@@ -101,14 +118,20 @@ export function bboxUV (u: number, v: number, zoom: number): BBox {
   ]
 }
 
-export function bboxST (s: number, t: number, zoom: number): BBox {
-  const divisionFactor = 2 / (1 << zoom)
+export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
+  const divisionFactor = (2 / (1 << zoom)) * 0.5
+
+  return [Math.floor(s / divisionFactor), Math.floor(t / divisionFactor)]
+}
+
+export function bboxST (x: number, y: number, zoom: number): BBox {
+  const divisionFactor = (2 / (1 << zoom)) * 0.5
 
   return [
-    divisionFactor * s * 0.5,
-    divisionFactor * t * 0.5,
-    divisionFactor * (s + 1) * 0.5,
-    divisionFactor * (t + 1) * 0.5
+    divisionFactor * x,
+    divisionFactor * y,
+    divisionFactor * (x + 1),
+    divisionFactor * (y + 1)
   ]
 }
 

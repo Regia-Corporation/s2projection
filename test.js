@@ -1,13 +1,20 @@
-const { S2Point, bboxST, tileXYFromSTZoom } = require('./lib').default
+const { S2Point, bboxST, tileXYFromUVZoom, tileXYFromSTZoom } = require('./lib').default
 
 const point = S2Point.fromLonLat(-98.26171875, 39.027718840211605)
 
 console.log(point)
-console.log(point.toUV())
-const [face, s, t] = point.toST()
-console.log(face, s, t)
-const [x, y] = tileXYFromSTZoom(s, t, 7)
-console.log('tile x, y', x, y)
+
+const [uvFace, u, v] = point.toUV()
+const [stFace, s, t] = point.toST()
+
+console.log(uvFace, u, v)
+console.log(stFace, s, t)
+
+const [uvX, uvY] = tileXYFromUVZoom(u, v, 7)
+const [stX, stY] = tileXYFromSTZoom(s, t, 7)
+
+console.log('tileUV x, y', uvX, uvY)
+console.log('tileST x, y', stX, stY)
 
 // const point = S2Point.fromUVGL(0, 0, 0)
 //
@@ -23,3 +30,11 @@ console.log(bboxST(0, 1, 1))
 
 // console.log(quadraticUVtoST(0.017443409628616985))
 // console.log(quadraticUVtoST(0.8694036545660797))
+
+console.log()
+console.log()
+console.log()
+
+const point2 = S2Point.fromSTGL(0, 0.5, 0.5)
+console.log(point2)
+console.log(point2.toSTGL())

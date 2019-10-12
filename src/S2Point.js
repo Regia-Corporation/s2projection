@@ -6,6 +6,7 @@ import {
   faceUVtoXYZ,
   faceXYZtoUV,
   faceUVtoXYZGL,
+  faceXYZGLtoUV,
   lonLatToXYZ,
   xyzToLonLat
 } from './S2Projection'
@@ -78,8 +79,21 @@ export default class S2Point {
     return [face, u, v]
   }
 
+  toUVGL (): [Face, number, number] {
+    // get the face from the x, y, z
+    const face: Face = this.getFaceGL()
+    let [u, v] = faceXYZGLtoUV(face, this.x, this.y, this.z)
+    return [face, u, v]
+  }
+
   toST (): [Face, number, number] {
     const [face, u, v] = this.toUV()
+
+    return [face, UVtoST(u), UVtoST(v)]
+  }
+
+  toSTGL (): [Face, number, number] {
+    const [face, u, v] = this.toUVGL()
 
     return [face, UVtoST(u), UVtoST(v)]
   }
@@ -96,8 +110,24 @@ export default class S2Point {
     return face
   }
 
+  getFaceGL (): Face {
+    let face = this._largestAbsComponentGL()
+    const temp = [this.z, this.x, this.y]
+    if (temp[face] < 0) face += 3
+    // $FlowIgnoreLine
+    return face
+  }
+
   _largestAbsComponent (): Face {
     let temp = [Math.abs(this.x), Math.abs(this.y), Math.abs(this.z)]
+
+    return (temp[0] > temp[1])
+      ? (temp[0] > temp[2]) ? 0 : 2
+      : (temp[1] > temp[2]) ? 1 : 2
+  }
+
+  _largestAbsComponentGL (): Face {
+    let temp = [Math.abs(this.z), Math.abs(this.x), Math.abs(this.y)]
 
     return (temp[0] > temp[1])
       ? (temp[0] > temp[2]) ? 0 : 2
