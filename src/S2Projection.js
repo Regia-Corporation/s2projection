@@ -74,6 +74,12 @@ export function xyzToLonLat (x: number, y: number, z: number, radius?: number = 
   ]
 }
 
+export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
+  const divisionSize = (2 / (1 << zoom)) * 0.5
+
+  return [Math.floor(s / divisionSize), Math.floor(t / divisionSize)]
+}
+
 export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [number, number, number] {
   lon = degToRad(lon)
   lat = degToRad(lat)
