@@ -35,6 +35,6 @@ console.log()
 console.log()
 console.log()
 
-const point2 = S2Point.fromSTGL(0, 0.5, 0.5)
+const point2 = S2Point.fromST(4, 1, 1)
 console.log(point2)
-console.log(point2.toSTGL())
+console.log(point2.toST())

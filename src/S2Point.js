@@ -141,11 +141,18 @@ export default class S2Point {
     return new S2Point(x, y, z)
   }
 
-  static fromLonLat (lon: number, lat: number): S2Point {
+  static fromLonLat (lon: number, lat: number, radius?: number): S2Point {
     // convert to x, y, z
-    const [x, y, z] = lonLatToXYZ(lon, lat)
+    const [x, y, z] = lonLatToXYZ(lon, lat, radius)
     // create the point
     return new S2Point(x, y, z)
+  }
+
+  static fromLonLatGL (lon: number, lat: number, radius?: number): S2Point {
+    // convert to x, y, z
+    const [x, y, z] = lonLatToXYZ(lon, lat, radius)
+    // create the point
+    return new S2Point(z, x, y)
   }
 
   static fromUV (face: Face, u: number, v: number): S2Point {
