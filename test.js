@@ -1,6 +1,6 @@
 const { S2Point, bboxST, tileXYFromUVZoom, tileXYFromSTZoom } = require('./lib').default
 
-const point = S2Point.fromLonLat(-98.26171875, 39.027718840211605)
+const point = S2Point.fromLonLat(0, -90)
 
 console.log(point)
 

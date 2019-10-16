@@ -17,6 +17,7 @@ import {
   bboxUV,
   tileXYFromSTZoom,
   bboxST,
+  updateFace,
   radToDeg,
   degToRad
 } from './S2Projection'
@@ -44,6 +45,7 @@ export default {
   bboxUV,
   tileXYFromSTZoom,
   bboxST,
+  updateFace,
   radToDeg,
   degToRad,
   EARTH_RADIUS,
