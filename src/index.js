@@ -24,7 +24,8 @@ import {
 import {
   EARTH_RADIUS,
   EARTH_RADIUS_WIDE,
-  EARTH_RADIUS_TALL
+  EARTH_RADIUS_TALL,
+  tileHash
 } from './util'
 
 export default {
@@ -50,7 +51,8 @@ export default {
   degToRad,
   EARTH_RADIUS,
   EARTH_RADIUS_WIDE,
-  EARTH_RADIUS_TALL
+  EARTH_RADIUS_TALL,
+  tileHash
 }
 
 export type { Face } from './S2Projection'
