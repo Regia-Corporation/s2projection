@@ -60,11 +60,16 @@ export default class S2Point {
     this.z *= arr[2]
   }
 
-  normalize () {
+  normalize (radius?: number) {
     const length = this.length()
     this.x /= length
     this.y /= length
     this.z /= length
+    if (radius) {
+      this.x *= radius
+      this.y *= radius
+      this.z *= radius
+    }
   }
 
   length () {
