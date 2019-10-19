@@ -9,3 +9,11 @@ export function tileHash (f: Face, z: number, x: number, y: number) {
   const xyz = tileLength * (tileLength + x) + y
   return f * (tileSize) + tileSize + xyz
 }
+
+export function radToDeg (radians: number): number {
+  return radians * 180 / Math.PI
+}
+
+export function degToRad (deg: number): number {
+  return deg * Math.PI / 180
+}

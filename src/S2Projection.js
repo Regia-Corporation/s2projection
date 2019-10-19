@@ -169,11 +169,3 @@ export function updateFace (face, s, t, size = 1) {
     else if (t === size) return [0, s, 0]
   }
 }
-
-export function radToDeg (radians: number): number {
-  return radians * 180 / Math.PI
-}
-
-export function degToRad (deg: number): number {
-  return deg * Math.PI / 180
-}
