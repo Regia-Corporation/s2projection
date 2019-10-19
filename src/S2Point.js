@@ -127,7 +127,7 @@ export default class S2Point {
     // convert to x, y, z
     const [x, y, z] = lonLatToXYZ(lon, lat, radius)
     // create the point
-    return new S2Point(z, x, y)
+    return new S2Point(y, z, x)
   }
 
   static fromUV (face: Face, u: number, v: number): S2Point {
