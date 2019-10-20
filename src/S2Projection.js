@@ -1,5 +1,6 @@
 // @flow
 import S2Point from './S2Point'
+import { radToDeg, degToRad } from './util'
 
 export type Face = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -97,14 +98,17 @@ export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [nu
   ]
 }
 
-// TODO: Currently not working
 export function tileXYFromUVZoom (u: number, v: number, zoom: number): number {
-  const divisionFactor = 2 / (1 << zoom)
-  console.log('divisionFactor', divisionFactor)
-  const totalDivisions = 2 / divisionFactor
-  console.log('totalDivisions', totalDivisions)
+  const s = quadraticUVtoST(u)
+  const t = quadraticUVtoST(v)
 
-  return [Math.floor((2 * u / divisionFactor) - 1), Math.floor(v / divisionFactor) - 1]
+  return tileXYFromSTZoom(s, t, zoom)
+}
+
+export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
+  const divisionFactor = (2 / (1 << zoom)) * 0.5
+
+  return [Math.floor(s / divisionFactor), Math.floor(t / divisionFactor)]
 }
 
 export function bboxUV (u: number, v: number, zoom: number): BBox {
@@ -116,12 +120,6 @@ export function bboxUV (u: number, v: number, zoom: number): BBox {
     divisionFactor * (u + 1) - 1,
     divisionFactor * (v + 1) - 1
   ]
-}
-
-export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
-  const divisionFactor = (2 / (1 << zoom)) * 0.5
-
-  return [Math.floor(s / divisionFactor), Math.floor(t / divisionFactor)]
 }
 
 export function bboxST (x: number, y: number, zoom: number): BBox {
