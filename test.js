@@ -1,8 +1,23 @@
 // const { S2Point, bboxST, tileXYFromUVZoom, tileXYFromSTZoom, tileHash } = require('./lib')
-const { tileHash } = require('./lib')
+const { bboxST, tileHash } = require('./lib')
 
 // [[0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [2, 0, 0, 0, 0], [3, 0, 0, 0, 0], [4, 0, 0, 0, 0], [5, 0, 0, 0, 0]]
-console.log(tileHash(1, 0, 0, 0))
+// console.log(tileHash(1, 0, 0, 0))
+
+const x = bboxST(0, 0, 20)
+// const f32 = new Float32Array([2147483650])
+console.log(x)
+// const testValue = parseFloat('-4.656612873077393e-11')
+const testValue = x[2] / 4096
+console.log('testValue', testValue)
+const high = Math.fround(testValue)
+const low = testValue - high
+console.log('high', high)
+console.log('low', low)
+// const high = Math.floor(x[2] / 65536) * 65536
+// const low = x[2] - high
+// console.log('high', high)
+// console.log('low', low)
 
 // const point = S2Point.fromLonLat(0, -90)
 //

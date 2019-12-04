@@ -28,48 +28,57 @@ export default class S2Point {
     this.x += n
     this.y += n
     this.z += n
+
+    return this
   }
 
   addScalar (arr: [number, number, number]) {
     this.x += arr[0]
     this.y += arr[1]
     this.z += arr[2]
+
+    return this
   }
 
   sub (n: number) {
     this.x -= n
     this.y -= n
     this.z -= n
+
+    return this
   }
 
   subScalar (arr: [number, number, number]) {
     this.x -= arr[0]
     this.y -= arr[1]
     this.z -= arr[2]
+
+    return this
   }
 
   mul (n: number) {
     this.x *= n
     this.y *= n
     this.z *= n
+
+    return this
   }
 
   mulArr (arr: [number, number, number]) {
     this.x *= arr[0]
     this.y *= arr[1]
     this.z *= arr[2]
+
+    return this
   }
 
-  normalize (radius?: number) {
+  normalize () {
     const length = this.length()
     this.x /= length
     this.y /= length
     this.z /= length
-    if (radius) {
-      this.x *= radius
-      this.y *= radius
-      this.z *= radius
-    }
+
+    return this
   }
 
   length () {
@@ -80,6 +89,7 @@ export default class S2Point {
     // get the face from the x, y, z
     const face: Face = this.getFace()
     let [u, v] = faceXYZtoUV(face, this.x, this.y, this.z)
+    
     return [face, u, v]
   }
 
@@ -116,16 +126,16 @@ export default class S2Point {
     return new S2Point(x, y, z)
   }
 
-  static fromLonLat (lon: number, lat: number, radius?: number): S2Point {
+  static fromLonLat (lon: number, lat: number): S2Point {
     // convert to x, y, z
-    const [x, y, z] = lonLatToXYZ(lon, lat, radius)
+    const [x, y, z] = lonLatToXYZ(lon, lat)
     // create the point
     return new S2Point(x, y, z)
   }
 
-  static fromLonLatGL (lon: number, lat: number, radius?: number): S2Point {
+  static fromLonLatGL (lon: number, lat: number): S2Point {
     // convert to x, y, z
-    const [x, y, z] = lonLatToXYZ(lon, lat, radius)
+    const [x, y, z] = lonLatToXYZ(lon, lat)
     // create the point
     return new S2Point(y, z, x)
   }

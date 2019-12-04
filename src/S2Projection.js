@@ -88,13 +88,13 @@ export function xyzToLonLat (x: number, y: number, z: number, radius?: number = 
   ]
 }
 
-export function lonLatToXYZ (lon: number, lat: number, radius?: number = 1): [number, number, number] {
+export function lonLatToXYZ (lon: number, lat: number): [number, number, number] {
   lon = degToRad(lon)
   lat = degToRad(lat)
   return [
-    radius * Math.cos(lat) * Math.cos(lon), // x
-    radius * Math.cos(lat) * Math.sin(lon), // y
-    radius * Math.sin(lat), // z
+    Math.cos(lat) * Math.cos(lon), // x
+    Math.cos(lat) * Math.sin(lon), // y
+    Math.sin(lat), // z
   ]
 }
 
@@ -133,37 +133,37 @@ export function bboxST (x: number, y: number, zoom: number): BBox {
   ]
 }
 
-export function updateFace (face, s, t, size = 1) {
+export function updateFace (face: face, s: number, t: number, size: number = 1) {
   const diff = (size === 1) ? size : size - 1
   if (face === 0) {
     if (s < 0) return [4, diff - t, size + s]
-    else if (s >= size) return [1, s - size, t]
+    else if (s === size) return [1, 0, t]
     else if (t < 0) return [5, s, size + t]
-    else if (t >= size) return [2, t - size, diff - s]
+    else if (t === size) return [2, 0, diff - s]
   } else if (face === 1) {
     if (s < 0) return [0, size + s, t]
-    else if (s >= size) return [3, diff - t, s - size]
+    else if (s == size) return [3, diff - t, 0]
     else if (t < 0) return [5, size + t, diff - s]
-    else if (t >= size) return [2, s, t - size]
+    else if (t === size) return [2, s, 0]
   } else if (face === 2) {
     if (s < 0) return [0, diff - t, size + s]
-    else if (s >= size) return [3, s - size, t]
+    else if (s === size) return [3, 0, t]
     else if (t < 0) return [1, s, size + t]
-    else if (t >= size) return [4, t - size, diff - s]
+    else if (t === size) return [4, 0, diff - s]
   } else if (face === 3) {
     if (s < 0) return [2, size + s, t]
-    else if (s >= size) return [5, diff - t, s - size]
+    else if (s === size) return [5, diff - t, 0]
     else if (t < 0) return [1, size + t, diff - s]
-    else if (t >= size) return [4, s, t - size]
+    else if (t === size) return [4, s, 0]
   } else if (face === 4) {
     if (s < 0) return [2, diff - t, size + s]
-    else if (s >= size) return [5, s - size, t]
+    else if (s === size) return [5, 0, t]
     else if (t < 0) return [3, s, size + t]
-    else if (t >= size) return [0, t - size, diff - s]
+    else if (t === size) return [0, 0, diff - s]
   } else if (face === 5) {
     if (s < 0) return [4, size + s, t]
-    else if (s >= size) return [1, diff - t, s - size]
+    else if (s === size) return [1, diff - t, 0]
     else if (t < 0) return [3, size + t, diff - s]
-    else if (t >= size) return [0, s, t - size]
+    else if (t === size) return [0, s, 0]
   }
 }
