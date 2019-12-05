@@ -18,7 +18,7 @@ export function degToRad (deg: number): number {
   return deg * Math.PI / 180
 }
 
-export function doubleToTwoFloats (num: number): [number, number] {
+export function doubleToFloats (num: number): [number, number] {
   const high = Math.fround(num)
   const low = num - high
 

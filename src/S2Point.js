@@ -10,7 +10,7 @@ import {
   xyzToLonLat
 } from './S2Projection'
 import S2LonLat from './S2LonLat'
-import { doubleToTwoFloats } from './util'
+import { doubleToFloats } from './util'
 
 /** TYPES **/
 import type { Face } from './S2Projection'
@@ -105,9 +105,9 @@ export default class S2Point {
   }
 
   toFloats (): [[number, number, number], [number, number, number]] { // [highVec3, lowVec3]
-    const floatsX = doubleToTwoFloats(this.x)
-    const floatsY = doubleToTwoFloats(this.y)
-    const floatsZ = doubleToTwoFloats(this.z)
+    const floatsX = doubleToFloats(this.x)
+    const floatsY = doubleToFloats(this.y)
+    const floatsZ = doubleToFloats(this.z)
 
     return [floatsX[0], floatsY[0], floatsZ[0], floatsX[1], floatsY[1], floatsZ[1]]
   }
