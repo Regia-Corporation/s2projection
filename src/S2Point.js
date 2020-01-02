@@ -45,6 +45,14 @@ export default class S2Point {
     return this
   }
 
+  addScalarS2 (point: S2Point) {
+    this.x += point.x
+    this.y += point.y
+    this.z += point.z
+
+    return this
+  }
+
   sub (n: number) {
     this.x -= n
     this.y -= n
@@ -57,6 +65,14 @@ export default class S2Point {
     this.x -= arr[0]
     this.y -= arr[1]
     this.z -= arr[2]
+
+    return this
+  }
+
+  subScalarS2 (point: S2Point) {
+    this.x -= point.x
+    this.y -= point.y
+    this.z -= point.z
 
     return this
   }
