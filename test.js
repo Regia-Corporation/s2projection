@@ -4,7 +4,7 @@ const { bboxST, S2Point } = require('./lib')
 // [[0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [2, 0, 0, 0, 0], [3, 0, 0, 0, 0], [4, 0, 0, 0, 0], [5, 0, 0, 0, 0]]
 // console.log(tileHash(1, 0, 0, 0))
 
-const bbox = bboxST(0, 0, 22)
+const bbox = bboxST(0, 0, 6)
 const ds = (bbox[2] - bbox[0]) / 4096
 const dt = (bbox[3] - bbox[1]) / 4096
 // const f32 = new Float32Array([2147483650])

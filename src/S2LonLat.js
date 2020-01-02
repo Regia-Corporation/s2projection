@@ -11,6 +11,10 @@ export default class S2LonLat {
     this.lat = lat
   }
 
+  clone () {
+    return new S2LonLat(this.lon, this.lat)
+  }
+
   normalize () {
     while (this.lon < -180) this.lon += 360
     while (this.lon > 180) this.lon -= 360

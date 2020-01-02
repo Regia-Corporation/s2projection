@@ -25,6 +25,10 @@ export default class S2Point {
     this.z = z
   }
 
+  clone () {
+    return new S2Point(this.x, this.y, this.z)
+  }
+
   add (n: number) {
     this.x += n
     this.y += n
