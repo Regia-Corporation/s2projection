@@ -1,5 +1,5 @@
 // @flow
-import type { Face } from './'
+import type { Face } from './S2Projection'
 
 export const EARTH_RADIUS = 6371008.8 // meters
 export const EARTH_RADIUS_EQUATORIAL = 6378137 // meters

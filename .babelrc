@@ -4,14 +4,7 @@
   "sourceMap": true,
   "comments": false,
   "presets": [
-    ["@babel/preset-env", {
-      "useBuiltIns": "entry",
-      "corejs": "core-js@3",
-      "debug": true,
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
-    }],
+    ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "core-js@3" }],
     "@babel/preset-flow"
   ],
   "plugins": ["@babel/plugin-syntax-flow"]
