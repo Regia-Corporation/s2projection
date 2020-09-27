@@ -1,6 +1,6 @@
 {
   "name": "s2projection",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "Work with spherical geometry and it's xyz vector normals",
   "main": "lib/index.js",
   "scripts": {
@@ -24,10 +24,11 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-syntax-flow": "^7.2.0",
+    "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.2",
-    "core-js": "^3.2.1",
+    "core-js": "^3.6.5",
     "eslint": "^6.1.0",
     "eslint-plugin-flowtype": "^4.2.0",
     "flow-bin": "^0.105.2",
