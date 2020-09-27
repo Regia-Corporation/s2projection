@@ -1,7 +1,13 @@
 // @flow
-export const EARTH_RADIUS = 6371.0088 // kilometers
-export const EARTH_RADIUS_WIDE = 6378.137 // kilometers
-export const EARTH_RADIUS_TALL = 6356.7523 // kilometers
+import type { Face } from './'
+
+export const EARTH_RADIUS = 6371008.8 // meters
+export const EARTH_RADIUS_EQUATORIAL = 6378137 // meters
+export const EARTH_RADIUS_POLAR = 6356752.3 // meters
+
+export const MARS_RADIUS = 3389500 // meters
+export const MARS_RADIUS_EQUATORIAL = 3396200 // meters
+export const MARS_RADIUS_POLAR = 3376200 // meters
 
 export function tileHash (f: Face, z: number, x: number, y: number) {
   const tileLength = (1 << z)
@@ -16,11 +22,4 @@ export function radToDeg (radians: number): number {
 
 export function degToRad (deg: number): number {
   return deg * Math.PI / 180
-}
-
-export function doubleToFloats (num: number): [number, number] {
-  const high = Math.fround(num)
-  const low = num - high
-
-  return [high, low]
 }

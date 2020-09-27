@@ -1,71 +1,57 @@
-// @flow
-import S2Point from './S2Point'
-import { radToDeg, degToRad } from './util'
+#ifndef S2_PROJECTION
+#define S2_PROJECTION
 
-export const kLimitIJ = 1 << 30
+#include <math.h>
+#include <stdint.h>
+#include "./S2Point.h"
 
-export type Face = 0 | 1 | 2 | 3 | 4 | 5
-
-export type BBox = [number, number, number, number] // left, bottom, right, top
-
-export function linearSTtoUV (s: number) {
-  return 2 * s - 1
+float linearSTtoUV (float s) {
+  return 2 * s - 1;
 }
 
-export function linearUVtoST (u: number) {
-  return 0.5 * (u + 1)
+float linearUVtoST (float u) {
+  return 0.5 * (u + 1);
 }
 
-export function tanSTtoUV (s: number) {
-  return Math.tan(Math.PI / 2 * s - Math.PI / 4)
+float tanSTtoUV (float s) {
+  return tan(M_PI / 2 * s - M_PI / 4);
 }
 
-export function tanUVtoST (u: number) {
-  return (2 * (1 / Math.PI)) * (Math.atan(u) + Math.PI / 4)
+float tanUVtoST (float u) {
+  return (2 * (1 / M_PI)) * (atan(u) + M_PI / 4);
 }
 
-export function quadraticSTtoUV (s: number) {
-  if (s >= 0.5) return (1 / 3) * (4 * s * s - 1)
-  return (1 / 3) * (1 - 4 * (1 - s) * (1 - s))
+float quadraticSTtoUV (float s) {
+  if (s >= 0.5) return (1 / 3) * (4 * s * s - 1);
+  return (1 / 3) * (1 - 4 * (1 - s) * (1 - s));
 }
 
-export function quadraticUVtoST (u: number) {
-  if (u >= 0) return 0.5 * Math.sqrt(1 + 3 * u)
-  return 1 - 0.5 * Math.sqrt(1 - 3 * u)
-}
-
-export function STtoIJ (s: number): number {
-  return Math.max(0, Math.min(kLimitIJ - 1, Math.floor(kLimitIJ * s)))
-}
-
-export function IJtoST (i: number): number {
-  return i / kLimitIJ
+float quadraticUVtoST (float u) {
+  if (u >= 0) return 0.5 * sqrt(1 + 3 * u);
+  return 1 - 0.5 * sqrt(1 - 3 * u);
 }
 
 // left hand rule
-export function faceUVtoXYZ (face: Face, u: number, v: number): S2Point {
-  switch (face) {
-    case 0: return new S2Point(1, u, v)
-    case 1: return new S2Point(-u, 1, v)
-    case 2: return new S2Point(-u, -v, 1)
-    case 3: return new S2Point(-1, -v, -u)
-    case 4: return new S2Point(v, -1, -u)
-    default: return new S2Point(v, u, -1)
-  }
+S2Point* faceUVtoXYZ (uint32_t face, uint32_t u, uint32_t v) {
+  if (face == 0) return new S2Point(1, u, v);
+  else if (face == 1) return new S2Point(-u, 1, v);
+  else if (face == 2) return new S2Point(-u, -v, 1);
+  else if (face == 3) return new S2Point(-1, -v, -u);
+  else if (face == 4) return new S2Point(v, -1, -u);
+  else return new S2Point(v, u, -1);
 }
 
 // right hand rule
-export function faceUVtoXYZGL (face: Face, u: number, v: number): S2Point {
-
-  switch (face) {
-    case 0: return new S2Point(u, v, 1)
-    case 1: return new S2Point(1, v, -u)
-    case 2: return new S2Point(-v, 1, -u)
-    case 3: return new S2Point(-v, -u, -1)
-    case 4: return new S2Point(-1, -u, v)
-    default: return new S2Point(u, -1, v)
-  }
+S2Point* faceUVtoXYZGL (uint32_t face, uint32_t u, uint32_t v) {
+  if (face == 0) return new S2Point(u, v, 1);
+  else if (face == 0) return new S2Point(1, v, -u);
+  else if (face == 0) return new S2Point(-v, 1, -u);
+  else if (face == 0) return new S2Point(-v, -u, -1);
+  else if (face == 0) return new S2Point(-1, -u, v);
+  else return new S2Point(u, -1, v);
 }
+
+#endif
 
 // left hand rule
 export function faceXYZtoUV (face: Face, x: number, y: number, z: number): [number, number] {
@@ -108,14 +94,14 @@ export function lonLatToXYZ (lon: number, lat: number): [number, number, number]
   ]
 }
 
-export function tileXYFromUVZoom (u: number, v: number, zoom: number): [number, number] {
+export function tileXYFromUVZoom (u: number, v: number, zoom: number): number {
   const s = quadraticUVtoST(u)
   const t = quadraticUVtoST(v)
 
   return tileXYFromSTZoom(s, t, zoom)
 }
 
-export function tileXYFromSTZoom (s: number, t: number, zoom: number): [number, number] {
+export function tileXYFromSTZoom (s: number, t: number, zoom: number): number {
   const divisionFactor = (2 / (1 << zoom)) * 0.5
 
   return [Math.floor(s / divisionFactor), Math.floor(t / divisionFactor)]
@@ -143,8 +129,8 @@ export function bboxST (x: number, y: number, zoom: number): BBox {
   ]
 }
 
-export function updateFace (face: Face, s: number, t: number, size: number = 1) {
-  const diff = (size === 1) ? size : size - 1
+uint32_t* updateFace (uint32_t face, uint32_t s, uint32_t t, uint32_t size) {
+  uint32_t diff = (size === 1) ? size : size - 1
   if (face === 0) {
     if (s < 0) return [4, diff - t, size + s]
     else if (s === size) return [1, 0, t]

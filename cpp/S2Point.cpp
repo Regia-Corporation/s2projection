@@ -1,35 +1,14 @@
-// @flow
-/** COMPONENTS **/
-import {
-  quadraticSTtoUV as STtoUV,
-  quadraticUVtoST as UVtoST,
-  STtoIJ,
-  faceUVtoXYZ,
-  faceXYZtoUV,
-  faceUVtoXYZGL,
-  lonLatToXYZ,
-  xyzToLonLat
-} from './S2Projection'
-import S2LonLat from './S2LonLat'
+#include "./S2Point.h"
+#include "./S2Projection.h"
 
-/** TYPES **/
-import type { Face } from './S2Projection'
+class S2Point {
+  S2Point (uint32_t i, uint32_t j, uint32_t k) : x(i), y(j), z(k) {}
 
-export default class S2Point {
-  x: number
-  y: number
-  z: number
-  constructor (x: number, y: number, z: number) {
-    this.x = x
-    this.y = y
-    this.z = z
-  }
-
-  clone () {
+  S2Point* clone () {
     return new S2Point(this.x, this.y, this.z)
   }
 
-  add (n: number) {
+  S2Point* add (uint32_t n) {
     this.x += n
     this.y += n
     this.z += n
@@ -122,7 +101,7 @@ export default class S2Point {
   }
 
   length () {
-    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z)
+    return sqrt(this.x * this.x + this.y * this.y + this.z * this.z)
   }
 
   toUV (): [Face, number, number] {
@@ -136,13 +115,7 @@ export default class S2Point {
   toST (): [Face, number, number] {
     const [face, u, v] = this.toUV()
 
-    return [face, UVtoST(u), UVtoST(v)]
-  }
-
-  toIJ (): [Face, number, number] {
-    const [face, s, t] = this.toST()
-
-    return [face, STtoIJ(s), STtoIJ(t)]
+    return [face, quadraticUVtoST(u), quadraticUVtoST(v)]
   }
 
   toLonLat (): [number, number] {
@@ -158,7 +131,7 @@ export default class S2Point {
   }
 
   _largestAbsComponent (): Face {
-    let temp = [Math.abs(this.x), Math.abs(this.y), Math.abs(this.z)]
+    let temp = [abs(this.x), abs(this.y), abs(this.z)]
 
     return (temp[0] > temp[1])
       ? (temp[0] > temp[2]) ? 0 : 2
@@ -191,7 +164,7 @@ export default class S2Point {
   }
 
   static fromST (face: Face, s: number, t: number): S2Point {
-    const [u, v] = [STtoUV(s), STtoUV(t)]
+    const [u, v] = [quadraticSTtoUV(s), quadraticSTtoUV(t)]
 
     return this.fromUV(face, u, v)
   }
@@ -201,7 +174,7 @@ export default class S2Point {
   }
 
   static fromSTGL (face: Face, s: number, t: number) {
-    const [u, v] = [STtoUV(s), STtoUV(t)]
+    const [u, v] = [quadraticSTtoUV(s), quadraticSTtoUV(t)]
 
     return this.fromUVGL(face, u, v)
   }
