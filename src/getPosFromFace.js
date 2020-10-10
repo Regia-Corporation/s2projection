@@ -10,55 +10,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       1: { // face
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       },
       2: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       3: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       },
       4: {
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       5: {
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       }
     },
     1: { // axis
       1: { // face
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       },
       2: { // face
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       3: { // face
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       },
       4: { // face
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       5: { // face
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       }
     }
   },
@@ -67,55 +67,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       },
       2: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       3: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       },
       4: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       },
       5: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       }
     },
     1: { // axis
       0: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       },
       2: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       3: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       },
       5: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       }
     }
   },
@@ -124,55 +124,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       1: {
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       },
       3: {
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       5: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       }
     },
     1: { // axis
       0: {
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       1: {
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       },
       3: {
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       5: {
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       }
     }
   },
@@ -181,27 +181,27 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       },
       1: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       },
       2: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       },
       4: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       5: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       }
     },
@@ -209,26 +209,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       },
       1: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       },
       2: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       },
       4: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       5: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       }
     }
@@ -239,26 +239,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       1: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       },
       2: {
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       3: {
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       },
       5: {
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       }
     },
@@ -266,26 +266,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 1
       },
       1: {
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       },
       2: {
         rot: -90,
-        x: -2,
+        x: -1,
         y: 0
       },
       3: {
         rot: 0,
         x: 0,
-        y: -2
+        y: -1
       },
       5: {
         rot: 0,
-        x: 2,
+        x: 1,
         y: 0
       }
     }
@@ -296,26 +296,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       1: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       },
       2: {
         rot: -90,
-        x: 4,
+        x: 2,
         y: 0
       },
       3: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       },
       4: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       }
     },
@@ -323,26 +323,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 0,
         x: 0,
-        y: 2
+        y: 1
       },
       1: {
         rot: -90,
-        x: 2,
+        x: 1,
         y: 0
       },
       2: {
         rot: 90,
         x: 0,
-        y: 4
+        y: 2
       },
       3: {
         rot: 90,
         x: 0,
-        y: -2
+        y: -1
       },
       4: {
         rot: 0,
-        x: -2,
+        x: -1,
         y: 0
       }
     }
@@ -350,18 +350,18 @@ const faceRuleSet = { // $FlowIgnoreLine
 }
 
 // get position relative to a face
-export default function getPosFromFace (face: Face, axis: 0 | 1, uvPoint: [Face, number, number]): [number, number] {
-  const [curFace, u, v] = uvPoint
+export default function getPosFromFace (face: Face, axis: 0 | 1, stPoint: [Face, number, number]): [number, number] {
+  const [curFace, s, t] = stPoint
   // trivial case: if already face of interest, return the point
-  if (face === curFace) return [u, v]
+  if (face === curFace) return [s, t]
   // first grab the conversion material
   const { rot, x, y } = faceRuleSet[face][axis][curFace]
   // give the rules, create a new u, v position via rotation than addition
-  let [newU, newV] = rotate(rot, u, v)
-  newU += x
-  newV += y
+  let [newS, newT] = rotate(rot, s, t)
+  newS += x
+  newT += y
 
-  return [newU, newV]
+  return [newS, newT]
 }
 
 // rotate around [0, 0]
@@ -370,7 +370,7 @@ function rotate (rot: 90 | -90, u: number, v: number): [number, number] {
   const angle = rot * Math.PI / 180.0
 
   return [
-    Math.cos(angle) * u - Math.sin(angle) * v,
-    Math.sin(angle) * u + Math.cos(angle) * v
+    Math.cos(angle) * (u - 0.5) - Math.sin(angle) * (v - 0.5) + 0.5,
+    Math.sin(angle) * (u - 0.5) + Math.cos(angle) * (v - 0.5) + 0.5
   ]
 }
