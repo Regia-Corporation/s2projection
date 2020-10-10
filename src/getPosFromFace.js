@@ -350,27 +350,27 @@ const faceRuleSet = { // $FlowIgnoreLine
 }
 
 // get position relative to a face
-export default function getPosFromFace (face: Face, axis: 0 | 1, stPoint: [Face, number, number]): [number, number] {
-  const [curFace, s, t] = stPoint
+export default function getPosFromFace (face: Face, axis: 0 | 1, uvPoint: [Face, number, number]): [number, number] {
+  const [curFace, u, v] = uvPoint
   // trivial case: if already face of interest, return the point
-  if (face === curFace) return [s, t]
+  if (face === curFace) return [u, v]
   // first grab the conversion material
   const { rot, x, y } = faceRuleSet[face][axis][curFace]
-  // give the rules, create a new s, t position via rotation than addition
-  let [newS, newT] = rotate(rot, s, t)
-  newS += x
-  newT += y
+  // give the rules, create a new u, v position via rotation than addition
+  let [newU, newV] = rotate(rot, u, v)
+  newU += x
+  newV += y
 
-  return [newS, newT]
+  return [newU, newV]
 }
 
-// rotate around [0.5, 0.5]
+// rotate around [0, 0]
 // https://stackoverflow.com/questions/4465931/rotate-rectangle-around-a-point
-function rotate (rot: 90 | -90, s: number, t: number): [number, number] {
+function rotate (rot: 90 | -90, u: number, v: number): [number, number] {
   const angle = rot * Math.PI / 180.0
 
   return [
-    Math.cos(angle) * s - Math.sin(angle) * t,
-    Math.sin(angle) * s + Math.cos(angle) * t
+    Math.cos(angle) * u - Math.sin(angle) * v,
+    Math.sin(angle) * u + Math.cos(angle) * v
   ]
 }
