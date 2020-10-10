@@ -1,14 +1,19 @@
 // const { S2Point, bboxST, tileXYFromUVZoom, tileXYFromSTZoom, tileHash } = require('./lib')
-const { tileXYFromSTZoom, S2Point } = require('./lib')
+const { S2Point, getPosFromFace } = require('./lib')
 
-const ZOOM = 5
+// const ZOOM = 5
 
 // 36.347791, -112.457758
 
-const s2point = S2Point.fromLonLat(-112.457758, 36.347791)
-const [face, s, t] = s2point.toST()
-const tile = tileXYFromSTZoom(s, t, ZOOM)
-console.log('tile', [face, tile[0], tile[1]])
+const s2point = S2Point.fromLonLat(180, 0)
+const stPoint = s2point.toST()
+const pos = getPosFromFace(0, 1, stPoint)
+console.log(pos)
+// const [u, v] = faceXYZtoUV(0, s2point.x, s2point.y, s2point.z)
+// const [s, t] = [quadraticUVtoST(u), quadraticUVtoST(v)]
+// console.log(0, s, t)
+// const tile = tileXYFromSTZoom(s, t, ZOOM)
+// console.log('tile', [face, tile[0], tile[1]])
 
 // [[0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [2, 0, 0, 0, 0], [3, 0, 0, 0, 0], [4, 0, 0, 0, 0], [5, 0, 0, 0, 0]]
 // console.log(tileHash(1, 0, 0, 0))
