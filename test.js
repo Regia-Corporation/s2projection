@@ -5,10 +5,11 @@ const { S2Point, getPosFromFace } = require('./lib')
 
 // 36.347791, -112.457758
 
-const s2point = S2Point.fromLonLat(180, 0)
-const stPoint = s2point.toST()
-const pos = getPosFromFace(0, 1, stPoint)
-console.log(pos)
+// const s2point = S2Point.fromLonLat(180, 0)
+// const stPoint = s2point.toST()
+// const pos = getPosFromFace(0, 1, stPoint)
+const s2point = S2Point.fromST(0, -0.3, 0.5)
+console.log(s2point.toST())
 // const [u, v] = faceXYZtoUV(0, s2point.x, s2point.y, s2point.z)
 // const [s, t] = [quadraticUVtoST(u), quadraticUVtoST(v)]
 // console.log(0, s, t)

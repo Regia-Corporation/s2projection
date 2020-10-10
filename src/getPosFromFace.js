@@ -10,55 +10,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       1: { // face
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       },
       2: {
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       3: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       },
       4: {
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       5: {
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       }
     },
     1: { // axis
       1: { // face
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       },
       2: { // face
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       3: { // face
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       },
       4: { // face
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       5: { // face
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       }
     }
   },
@@ -67,55 +67,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       },
       2: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       3: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       },
       4: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       },
       5: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       }
     },
     1: { // axis
       0: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       },
       2: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       3: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       },
       5: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       }
     }
   },
@@ -124,55 +124,55 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       1: {
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       },
       3: {
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       5: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       }
     },
     1: { // axis
       0: {
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       1: {
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       },
       3: {
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       },
       4: {
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       5: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       }
     }
   },
@@ -181,27 +181,27 @@ const faceRuleSet = { // $FlowIgnoreLine
     0: { // axis
       0: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       },
       1: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       },
       2: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       },
       4: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       5: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       }
     },
@@ -209,26 +209,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       },
       1: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       },
       2: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       },
       4: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       5: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       }
     }
@@ -239,26 +239,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       1: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       },
       2: {
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       3: {
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       },
       5: {
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       }
     },
@@ -266,26 +266,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 90,
         x: 0,
-        y: 1
+        y: 2
       },
       1: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       },
       2: {
         rot: -90,
-        x: -1,
+        x: -2,
         y: 0
       },
       3: {
         rot: 0,
         x: 0,
-        y: -1
+        y: -2
       },
       5: {
         rot: 0,
-        x: 1,
+        x: 2,
         y: 0
       }
     }
@@ -296,26 +296,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       1: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       },
       2: {
         rot: -90,
-        x: 2,
+        x: 4,
         y: 0
       },
       3: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       },
       4: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       }
     },
@@ -323,26 +323,26 @@ const faceRuleSet = { // $FlowIgnoreLine
       0: {
         rot: 0,
         x: 0,
-        y: 1
+        y: 2
       },
       1: {
         rot: -90,
-        x: 1,
+        x: 2,
         y: 0
       },
       2: {
         rot: 90,
         x: 0,
-        y: 2
+        y: 4
       },
       3: {
         rot: 90,
         x: 0,
-        y: -1
+        y: -2
       },
       4: {
         rot: 0,
-        x: -1,
+        x: -2,
         y: 0
       }
     }
@@ -370,7 +370,7 @@ function rotate (rot: 90 | -90, s: number, t: number): [number, number] {
   const angle = rot * Math.PI / 180.0
 
   return [
-    Math.cos(angle) * (s - 0.5) - Math.sin(angle) * (t - 0.5) + 0.5,
-    Math.sin(angle) * (s - 0.5) + Math.cos(angle) * (t - 0.5) + 0.5
+    Math.cos(angle) * s - Math.sin(angle) * t,
+    Math.sin(angle) * s + Math.cos(angle) * t
   ]
 }
