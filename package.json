@@ -1,6 +1,6 @@
 {
   "name": "s2projection",
-  "version": "1.8.3",
+  "version": "1.9.0",
   "description": "Work with spherical geometry and it's xyz vector normals",
   "main": "lib/index.js",
   "scripts": {

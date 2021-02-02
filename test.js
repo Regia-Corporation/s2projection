@@ -1,14 +1,64 @@
 // const { S2Point, bboxST, tileXYFromUVZoom, tileXYFromSTZoom, tileHash } = require('./lib')
-const { S2Point, getPosFromFace } = require('./lib')
+const { S2Point, tileXYFromSTZoom, bboxST } = require('./lib')
+
+// -112.150548, 40.523090
+
+// 5, 8, 63, 166 [face, zoom, x, y] -> [ -61.127575825959816, -64.13792714316762, -61.38718822617137, -64.60955876095235 ]
+// 5, 8, 63, 166 [face, zoom, x, y]
+
+// const point = S2Point.fromLonLat(-112.150548, 40.525).toST()
+// const tile = tileXYFromSTZoom(point[1], point[2], 11)
+// const bbox = bboxST(...tile, 11)
+// const llBBOX = [
+//   ...(S2Point.fromST(point[0], bbox[0], bbox[3])).toLonLat(), // face, s, t
+//   ...(S2Point.fromST(point[0], bbox[2], bbox[1])).toLonLat()
+// ]
+// console.log('s, t', point)
+// console.log('tile', `${point[0]} - 11 - ${tile[0]} - ${tile[1]}`)
+// console.log('st bbox', bbox)
+// console.log('ll bbox', llBBOX)
+
+// const bbox = bboxST(762, 669, 10)
+//
+// const llBBOX = [
+//   ...(S2Point.fromST(5, bbox[0], bbox[1])).toLonLat(), // face, s, t
+//   ...(S2Point.fromST(5, bbox[2], bbox[3])).toLonLat()
+// ]
+//
+// console.log('st bbox', bbox)
+// console.log('ll bbox', llBBOX)
+
+
+
+
+let point = S2Point.fromLonLat(((-60.3 + -59.1) / 2), ((-65 + -64.6) / 2))
+console.log(point)
+// let [face, s, t] = point.toST()
+
+// let [x, y] = tileXYFromSTZoom(s, t, 10)
+//
+// console.log(face, s, t)
+// console.log(10, x, y)
+
+
+
+
+
+
+
+
+
+
+
 
 // const ZOOM = 5
 
 // 36.347791, -112.457758
 
-const s2point = S2Point.fromLonLat(180, 0)
-const uvPoint = s2point.toUV()
-const pos = getPosFromFace(0, 0, uvPoint)
-console.log(uvPoint, pos)
+// const xyzTable = [{ x: 1 }, { y: 1 }, { z: 1 }, { x: -1 }, { y: -1 }, { z: -1 }]
+//
+// const pos = S2Point.fromST(5, 0.5, 0.5)
+// console.log(pos)
 // const s2point = S2Point.fromST(0, -0.3, 0.5)
 // console.log(s2point.toST())
 // const [u, v] = faceXYZtoUV(0, s2point.x, s2point.y, s2point.z)
