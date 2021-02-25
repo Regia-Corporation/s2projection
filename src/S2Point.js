@@ -102,30 +102,11 @@ export default class S2Point {
     return this
   }
 
-  normalize (radii?: [number, number]) {
+  normalize () {
     const length = this.length()
     this.x /= length
     this.y /= length
     this.z /= length
-    if (radii) {
-      this.x * radii[0]
-      this.y * radii[0]
-      this.z = radii[1]
-    }
-
-    return this
-  }
-
-  normalizeGL (radii?: [number, number]) {
-    const length = this.length()
-    this.x /= length
-    this.y /= length
-    this.z /= length
-    if (radii) {
-      this.x * radii[0]
-      this.y = radii[1]
-      this.z * radii[0]
-    }
 
     return this
   }
