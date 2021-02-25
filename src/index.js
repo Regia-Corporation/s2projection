@@ -37,5 +37,5 @@ export {
   tileHash,
   radToDeg,
   degToRad,
-  doubleToTwoFloats
+  doubleToFloats
 } from './util'
